@@ -1,0 +1,22 @@
+
+aarch64-none-elf-gcc -I -include -c main.c -o main.o
+
+
+aarch64-none-elf-gcc -I -include -c timer.c -o timer.o
+
+
+aarch64-none-elf-gcc -I -include -c utils.c -o utils.o
+aarch64-none-elf-gcc -I -include -c interrupt.c -o interrupt.o
+
+aarch64-none-elf-as -c start.s -o start.o
+
+
+aarch64-none-elf-ld -Tlink.ld  main.o timer.o utils.o interrupt.o start.o -o liunuxos.elf
+
+
+
+aarch64-none-elf-objcopy -O binary liunuxos.elf liunuxos.bin
+
+
+
+
